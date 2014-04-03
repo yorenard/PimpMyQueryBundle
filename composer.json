@@ -17,6 +17,6 @@
     "autoload": {
         "psr-2": { "PimpMyQueryBundle": "" }
     },
-    "minimum-stability": "master",
+    "minimum-stability": "dev",
     "target-dir": "PimpMyQueryBundle"
 }
