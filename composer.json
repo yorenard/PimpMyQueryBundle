@@ -1,5 +1,5 @@
 {
-    "name": "lafourchette/PimpMyQueryBundle",
+    "name": "yorenard/pimpmyquery",
     "description": "This bundle provides the API client",
     "keywords": ["query"],
     "type": "symfony-bundle",
@@ -19,4 +19,3 @@
     },
     "target-dir": "PimpMyQueryBundle"
 }
-
