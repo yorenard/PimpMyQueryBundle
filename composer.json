@@ -1,0 +1,22 @@
+{
+    "name": "lafourchette/PimpMyQueryBundle",
+    "description": "This bundle provides the API client",
+    "keywords": ["query"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yoann RENARD",
+            "email": "yrenard@lafourchette.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "phpunit/phpunit": "3.7.*@dev"
+    },
+    "autoload": {
+        "psr-2": { "PimpMyQueryBundle": "" }
+    },
+    "target-dir": "PimpMyQueryBundle"
+}
+
