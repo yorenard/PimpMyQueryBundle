@@ -1,5 +1,5 @@
 {
-    "name": "lafourchette/PimpMyQueryBundle",
+    "name": "yorenard/pimpmyquery",
     "description": "This bundle provides the API client",
     "keywords": ["query"],
     "type": "symfony-bundle",
@@ -15,8 +15,8 @@
         "phpunit/phpunit": "3.7.*@dev"
     },
     "autoload": {
-        "psr-2": { "PimpMyQueryBundle": "" }
+        "psr-0": { "YoRenard\\PimpMyQueryBundle": "" }
     },
-    "target-dir": "PimpMyQueryBundle"
+    "minimum-stability": "dev",
+    "target-dir": "YoRenard/PimpMyQueryBundle"
 }
-

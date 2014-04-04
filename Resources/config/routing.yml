@@ -1,0 +1,19 @@
+YoRenardPMQBundle_editQuery:
+    pattern: /edit/{idQuery}
+    defaults: { _controller: YoRenardPimpMyQueryBundle:CRUB:editQuery, idQuery:null }
+YoRenardPMQBundle_delete:
+    pattern: /delete/{idQuery}
+    defaults: { _controller: YoRenardPimpMyQueryBundle:CRUB:deleteQuery }
+
+YoRenardPMQBundle_list_show:
+    pattern: /list/{mode}/{page}
+    defaults: { _controller: YoRenardPimpMyQueryBundle:PimpMyQuery:listQuery, page:1 }
+YoRenardPMQBundle_favorite:
+    pattern: /update-favorite/{idQuery}
+    defaults: { _controller: YoRenardPimpMyQueryBundle:PimpMyQuery:updateFavorite }
+YoRenardPMQBundle_editQueryToExecute:
+    pattern: /set/{idQuery}
+    defaults: { _controller: YoRenardPimpMyQueryBundle:PimpMyQuery:editQueryToExecute }
+YoRenardPMQBundle_execute_query:
+    pattern: /execute/{idQuery}/{page}
+    defaults: { _controller: YoRenardPimpMyQueryBundle:PimpMyQuery:executeQuery, page:1 }
