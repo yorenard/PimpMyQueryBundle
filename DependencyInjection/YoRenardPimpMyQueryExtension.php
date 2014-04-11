@@ -25,5 +25,6 @@ class YoRenardPimpMyQueryExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('orm.xml');
+        $loader->load('form.xml');
     }
 }

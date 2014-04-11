@@ -5,6 +5,7 @@ namespace YoRenard\PimpMyQueryBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use YoRenard\PimpMyQueryBundle\Entity\PMQQuery;
 use YoRenard\PimpMyQueryBundle\Entity\PMQRunQueue;
+use YoRenard\PimpMyQueryBundle\Form\Extension\Validator\Constraints\Form;
 use YoRenard\PimpMyQueryBundle\Form\QueryType;
 use YoRenard\BiBundle\Form\FilterType;
 use YoRenard\BiBundle\Entity\Filter;
@@ -111,7 +112,7 @@ class PimpMyQueryController extends Controller
         $paramForm = $this->get('la_fourchette_pimp_my_query.extractor.param_form')->extract($request);
 
         // Valid form
-        if($this->pimpMyQueryBusiness->validateForm($paramForm)) {
+        if($this->$this->get('yorenard_pimp_my_query.form.constraints.validator.form')->validate($paramForm, new Form())) {
             if($paramForm['mode'] == PMQQuery::EXECUTE_MODE_PLAN) {
                 $this->pimpMyQueryBusiness->addRunQueue($query, $paramForm, $lfUser);
 
