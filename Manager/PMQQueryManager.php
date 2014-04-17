@@ -2,7 +2,6 @@
 
 namespace YoRenard\PimpMyQueryBundle\Manager;
 
-use YoRenard\CoreBundle\Manager\Doctrine\AbstractManager;
 use YoRenard\PimpMyQueryBundle\Entity\PMQQuery;
 use YoRenard\PimpMyQueryBundle\Entity\PMQRight;
 use Doctrine\ORM\EntityManager;
@@ -10,7 +9,7 @@ use Doctrine\ORM\EntityManager;
 /**
  * PMQQueryManager
  */
-class PMQQueryManager extends AbstractManager
+class PMQQueryManager
 {
 
     protected $doctrineService;

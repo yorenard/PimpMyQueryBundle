@@ -7,8 +7,8 @@ use YoRenard\PimpMyQueryBundle\Entity\PMQQuery;
 use YoRenard\PimpMyQueryBundle\Entity\PMQRunQueue;
 use YoRenard\PimpMyQueryBundle\Form\Extension\Validator\Constraints\Form;
 use YoRenard\PimpMyQueryBundle\Form\QueryType;
-use YoRenard\BiBundle\Form\FilterType;
-use YoRenard\BiBundle\Entity\Filter;
+use YoRenard\PimpMyQueryBundle\Form\FilterType;
+use YoRenard\PimpMyQueryBundle\Entity\Filter;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
@@ -38,9 +38,10 @@ class PimpMyQueryController extends Controller
             $form->bind($request);
         }
 
-        $user = $this->get('security.context')->getToken()->getUser();
+//        $user = $this->get('security.context')->getToken()->getUser();
+        $user = null;
 
-        $queries = $this->pimpMyQueryBusiness->getQueryList($mode, $user, $filter->getName(), $orderBy=PMQQuery::ORDER_BY_FAVORITE, $direction=null, $page);
+        $queries = $this->get('yorenard_pimp_my_query.behavior.get_paginated_query_list')->getPaginatedQueryList($mode, $user, $filter->getName(), $orderBy=PMQQuery::ORDER_BY_FAVORITE, $direction=null, $page);
 
         $queryList      = $queries['results'];
         $last_page      = ceil($queries['count'] / PMQQuery::NB_QUERY_ON_PAGE);
