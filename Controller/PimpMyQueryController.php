@@ -84,14 +84,9 @@ class PimpMyQueryController extends Controller
         ));
     }
 
-    public function executeQueryAction($idQuery, $page=1)
+    public function executeQueryAction(PMQQuery $query, $page=1)
     {
         $this->initController();
-
-        $query = $this->pimpMyQueryBusiness->getQuery($idQuery);
-        if(!$query) {
-            throw new \RuntimeException("This query does'\t exists!!");
-        }
 
         $lfUser = $this->get('security.context')->getToken()->getUser();
 
