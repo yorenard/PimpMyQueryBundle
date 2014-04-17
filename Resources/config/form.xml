@@ -6,7 +6,7 @@
 
     <parameters>
         <parameter key="yorenard_pimp_my_query.form.constraints">YoRenard\PimpMyQueryBundle\Form\Extension\Validator\Constraints\</parameter>
-        <parameter key="yorenard_pimp_my_query.form.constraints.validator.form.class">%yorenard_pimp_my_query.constraints%FormValidator</parameter>
+        <parameter key="yorenard_pimp_my_query.form.constraints.validator.form.class">%yorenard_pimp_my_query.form.constraints%FormValidator</parameter>
     </parameters>
 
     <services>
