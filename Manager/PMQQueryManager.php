@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManager;
 /**
  * PMQQueryManager
  */
-class PMQQueryManager
+class PMQQueryManager extends AbstractManager
 {
 
     protected $doctrineService;
@@ -30,20 +30,21 @@ class PMQQueryManager
 
         if ($mode==PMQQuery::USER_MODE_USER) {
             $level = PMQRight::USER_TYPE_USER;
-            foreach ($user->getRoleList() as $role) {
-                if ($role->getIdRole() == 2) {
-                    $level = PMQRight::USER_TYPE_MANAGER;
-                }
-            }
+//            foreach ($user->getRoleList() as $role) {
+//                if ($role->getIdRole() == 2) {
+//                    $level = PMQRight::USER_TYPE_MANAGER;
+//                }
+//            }
 
-            $qb->addSelect('fq')
-               ->leftJoin('q.favoriteQueries', 'fq', \Doctrine\ORM\Query\Expr\Join::WITH, 'fq.lfUser = :user')
-               ->setParameter('user', $user)
+            $qb
+//                ->addSelect('fq')
+//               ->leftJoin('q.favoriteQueries', 'fq', \Doctrine\ORM\Query\Expr\Join::WITH, 'fq.lfUser = :user')
+//               ->setParameter('user', $user)
                ->andWhere('q.public = 1')
-               ->innerJoin('q.rights', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, '(r.service = :userService OR r.service is NULL) AND (r.level = :userLevel1 OR r.level = :userLevel2)')
-               ->setParameter('userService', $user->getIdService())
-               ->setParameter('userLevel1', $level)
-               ->setParameter('userLevel2', PMQRight::USER_TYPE_USER)
+//               ->innerJoin('q.rights', 'r', \Doctrine\ORM\Query\Expr\Join::WITH, '(r.service = :userService OR r.service is NULL) AND (r.level = :userLevel1 OR r.level = :userLevel2)')
+//               ->setParameter('userService', $user->getIdService())
+//               ->setParameter('userLevel1', $level)
+//               ->setParameter('userLevel2', PMQRight::USER_TYPE_USER)
             ;
         }
 
@@ -53,14 +54,13 @@ class PMQQueryManager
 
         if($orderBy) {
             if($orderBy==PMQQuery::ORDER_BY_FAVORITE && $mode==PMQQuery::USER_MODE_USER) {
-                $qb->orderBy('fq.query', 'DESC');
+//                $qb->orderBy('fq.query', 'DESC');
             }
             elseif($orderBy!=PMQQuery::ORDER_BY_FAVORITE) {
                 $qb->orderBy('q.'.$orderBy.' '.$direction);
             }
             $qb->addOrderBy('q.idQuery', 'ASC');
         }
-
 
         return $qb;
     }

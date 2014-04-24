@@ -2,7 +2,6 @@
 
 namespace YoRenard\PimpMyQueryBundle\Manager;
 
-use YoRenard\CoreBundle\Manager\Doctrine\AbstractManager;
 use Doctrine\ORM\EntityManager;
 
 /**
