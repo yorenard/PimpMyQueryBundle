@@ -23,8 +23,6 @@ class GetPaginatedQueryListBehaviorTest extends \PHPUnit_Framework_TestCase
 
     public function testGetPaginatedQueryList()
     {
-        $mode = 'mode';
-        $user = 'user';
         $filter = null;
         $orderBy = PMQQuery::ORDER_BY_FAVORITE;
         $direction = null;
@@ -32,9 +30,9 @@ class GetPaginatedQueryListBehaviorTest extends \PHPUnit_Framework_TestCase
 
         $qb = $this->getMock('\Doctrine\DBAL\Query\QueryBuilder', array(), array(), '', null);
 
-        $this->pmqQueryManagerMock->expects($this->once())->method('getQueryList')->with($mode, $user, $filter, $orderBy, $direction)->will($this->returnValue($qb));
+        $this->pmqQueryManagerMock->expects($this->once())->method('getQueryList')->with($filter, $orderBy, $direction)->will($this->returnValue($qb));
         $this->customPaginatorMock->expects($this->once())->method('paginate')->with($qb, $page)->will($this->returnValue('page'));
 
-        $this->assertEquals('page', $this->getPaginatedQueryListBehavior->getPaginatedQueryList($mode, $user, $filter, $orderBy, $direction, $page));
+        $this->assertEquals('page', $this->getPaginatedQueryListBehavior->getPaginatedQueryList($filter, $orderBy, $direction, $page));
     }
 }
