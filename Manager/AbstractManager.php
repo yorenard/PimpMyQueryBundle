@@ -92,4 +92,38 @@ abstract class AbstractManager implements ManagerInterface
     {
         $this->em->flush();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function save($entity)
+    {
+        $this->em->persist($entity);
+        $this->em->flush();
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function delete($entity)
+    {
+        $this->em->remove($entity);
+        $this->em->flush();
+    }
+
+    public function persist($entity)
+    {
+        $this->em->persist($entity);
+    }
+
+    public function detach($entity)
+    {
+        $this->em->detach($entity);
+    }
+
+    public function clear()
+    {
+        $this->em->clear();
+    }
 }

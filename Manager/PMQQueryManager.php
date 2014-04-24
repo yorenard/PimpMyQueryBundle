@@ -134,4 +134,14 @@ class PMQQueryManager extends AbstractManager
         return $conn->query("SELECT FOUND_ROWS() count;")->fetch(\PDO::FETCH_OBJ)->count;
     }
 
+    /**
+     * @param PMQQuery $entity
+     */
+    public function save(PMQQuery $entity)
+    {
+        $this->em->persist($entity);
+        $this->em->flush();
+
+    }
+
 }

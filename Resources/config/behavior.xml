@@ -6,12 +6,16 @@
 
     <parameters>
         <parameter key="yorenard_pimp_my_query.behavior.get_paginated_query_list.class">YoRenard\PimpMyQueryBundle\Behavior\GetPaginatedQueryListBehavior</parameter>
+        <parameter key="yorenard_pimp_my_query.behavior.update_query.class">YoRenard\PimpMyQueryBundle\Behavior\UpdateQueryBehavior</parameter>
     </parameters>
 
     <services>
         <service id="yorenard_pimp_my_query.behavior.get_paginated_query_list" class="%yorenard_pimp_my_query.behavior.get_paginated_query_list.class%">
-            <argument type="service" id="la_fourchette_pimp_my_query.manager.pmq_query_manager" />
+            <argument type="service" id="yorenard_pimp_my_query.manager.pmq_query" />
             <argument type="service" id="yorenard_pimp_my_query.paginator.custom" />
+        </service>
+        <service id="yorenard_pimp_my_query.behavior.update_query" class="%yorenard_pimp_my_query.behavior.update_query.class%">
+            <argument type="service" id="yorenard_pimp_my_query.manager.pmq_query" />
         </service>
     </services>
 </container>

@@ -5,11 +5,19 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
+        <!--form-->
+        <parameter key="yorenard_pimp_my_query.form.type.pmq_query.type.class">YoRenard\PimpMyQueryBundle\Form\QueryType</parameter>
+
+        <!--constraints-->
         <parameter key="yorenard_pimp_my_query.form.constraints">YoRenard\PimpMyQueryBundle\Form\Extension\Validator\Constraints\</parameter>
         <parameter key="yorenard_pimp_my_query.form.constraints.validator.form.class">%yorenard_pimp_my_query.form.constraints%FormValidator</parameter>
     </parameters>
 
     <services>
+        <!--form-->
+        <service id="yorenard_pimp_my_query.form.type.pmq_query.type" class="%yorenard_pimp_my_query.form.type.pmq_query.type.class%" />
+
+        <!--constraints-->
         <service id="yorenard_pimp_my_query.form.constraints.validator.form" class="%yorenard_pimp_my_query.form.constraints.validator.form.class%" />
     </services>
 </container>
