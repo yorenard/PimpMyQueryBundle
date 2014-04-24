@@ -24,10 +24,4 @@ class UpdateQueryBehaviorTest extends \PHPUnit_Framework_TestCase
 
         $this->updateQueryBehavior->update($pmqQuery);
     }
-
-    public function update(PMQQuery $pmqQuery)
-    {
-//        $this->get('yorenard_pimp_my_query.behavior.update_query')->update($pmqQuery);
-
-    }
 }
