@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="yorenard_pimp_my_query.paginator.custom">YoRenard\PimpMyQueryBundle\Paginator\CustomPaginator</parameter>
+        <parameter key="yorenard_pimp_my_query.paginator.custom.class">YoRenard\PimpMyQueryBundle\Paginator\CustomPaginator</parameter>
     </parameters>
 
     <services>

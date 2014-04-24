@@ -37,10 +37,9 @@ class PMQRunQueue
     private $query;
 
     /**
-     * @var LFUser $lfUser
+     * @var integer $lfUser
      *
-     * @ORM\ManyToOne(targetEntity="YoRenard\LFUserBundle\Entity\LFUser", inversedBy="runQueues")
-     * @ORM\JoinColumn(name="id_lf_user", referencedColumnName="id_lf_user", nullable=true)
+     * @ORM\Column(name="id_lf_user", columnDefinition="INT UNSIGNED NULL")
      */
     private $lfUser;
 
@@ -153,7 +152,7 @@ class PMQRunQueue
     /**
      * @param \YoRenard\LFUserBundle\Entity\LFUser $lfUser
      */
-    public function setLfUser($lfUser)
+    public function setLfUser(/*\YoRenard\LFUserBundle\Entity\LFUser*/ $lfUser)
     {
         $this->lfUser = $lfUser;
     }

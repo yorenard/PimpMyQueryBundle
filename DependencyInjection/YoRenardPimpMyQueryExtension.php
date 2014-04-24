@@ -27,5 +27,6 @@ class YoRenardPimpMyQueryExtension extends Extension
         $loader->load('orm.xml');
         $loader->load('form.xml');
         $loader->load('behavior.xml');
+        $loader->load('paginator.xml');
     }
 }

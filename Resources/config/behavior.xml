@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="yorenard_pimp_my_query.behavior.get_paginated_query_list">YoRenard\PimpMyQueryBundle\Behavior\GetPaginatedQueryListBehavior</parameter>
+        <parameter key="yorenard_pimp_my_query.behavior.get_paginated_query_list.class">YoRenard\PimpMyQueryBundle\Behavior\GetPaginatedQueryListBehavior</parameter>
     </parameters>
 
     <services>

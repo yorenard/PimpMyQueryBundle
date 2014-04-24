@@ -8,33 +8,128 @@ use YoRenard\PimpMyQueryBundle\Entity\PMQQuery;
 class CustomPaginator
 {
     /**
+     * @var array $results
+     */
+    protected $queryList;
+
+    /**
+     * @var int $lastIdPage
+     */
+    protected $lastIdPage;
+
+    /**
+     * @var int $previousIdPage
+     */
+    protected $previousIdPage;
+
+    /**
+     * @var int $nextIdPage
+     */
+    protected $nextIdPage;
+
+    /**
+     * @var int $count
+     */
+    protected $count;
+
+    /**
+     * @param int $lastIdPage
+     */
+    public function setLastIdPage($lastIdPage)
+    {
+        $this->lastIdPage = $lastIdPage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLastIdPage()
+    {
+        return $this->lastIdPage;
+    }
+
+    /**
+     * @param int $nextIdPage
+     */
+    public function setNextIdPage($nextIdPage)
+    {
+        $this->nextIdPage = $nextIdPage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNextIdPage()
+    {
+        return $this->nextIdPage;
+    }
+
+    /**
+     * @param int $previousIdPage
+     */
+    public function setPreviousIdPage($previousIdPage)
+    {
+        $this->previousIdPage = $previousIdPage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPreviousIdPage()
+    {
+        return $this->previousIdPage;
+    }
+
+    /**
+     * @param array $queryList
+     */
+    public function setQuerylist($querylist)
+    {
+        $this->querylist = $querylist;
+    }
+
+    /**
+     * @return array
+     */
+    public function getQuerylist()
+    {
+        return $this->querylist;
+    }
+
+    /**
      * todo improve this with Doctrine Paginator : return new Paginator($qb); doesn't work for now !!
      *
      * @param QueryBuilder $queryBuilder
      *
      * @return array
      */
-    public function paginate(QueryBuilder $queryBuilder, $page=1)
+    public function paginate(/*QueryBuilder */$queryBuilder, $page=1)
     {
-        $count = $this->getCount($queryBuilder);
+        $this->count = $this->getCount($queryBuilder);
 
         $queryBuilder = $queryBuilder
             ->setFirstResult($this->getOffsetFromPage($page))
-            ->setMaxResults(PMQQuery::NB_QUERY_ON_PAGE);
+            ->setMaxResults(PMQQuery::NB_QUERY_ON_PAGE)
+        ;
 
-        $results = $this->getResult($queryBuilder);
 
-        return array(
-            'results' => $results,
-            'count'   => $count
-        );
+
+        $this->querylist      = $this->getResult($queryBuilder);
+        $this->lastIdPage     = ceil($this->count / PMQQuery::NB_QUERY_ON_PAGE);
+        $this->previousIdPage = $page>1? $page-1:1;
+        $this->nextIdPage     = $page<$this->lastIdPage? $page+1:$this->lastIdPage;
+
+
+
+
+        return $this;
     }
 
     /**
      * @param QueryBuilder $queryBuilder
      * @return int
      */
-    public function getCount(QueryBuilder $queryBuilder)
+    public function getCount(/*QueryBuilder */$queryBuilder)
     {
         return count($this->getResult($queryBuilder));
     }
@@ -43,7 +138,7 @@ class CustomPaginator
      * @param QueryBuilder $queryBuilder
      * @return mixed
      */
-    public function getResult(QueryBuilder $queryBuilder)
+    public function getResult(/*QueryBuilder */$queryBuilder)
     {
         return $queryBuilder->getQuery()->getResult();
     }

@@ -32,17 +32,15 @@ class GetPaginatedQueryListBehavior
     /**
      * get paginated Query list
      *
-     * @param $mode
-     * @param $user
      * @param null $filter
      * @param $orderBy
      * @param null $direction
      * @param int $page
-     * @return array
+     * @return CustomPaginator
      */
-    public function getPaginatedQueryList($mode, $user, $filter=null, $orderBy=PMQQuery::ORDER_BY_FAVORITE, $direction=null, $page=1)
+    public function getPaginatedQueryList($filter=null, $orderBy=PMQQuery::ORDER_BY_FAVORITE, $direction=null, $page=1)
     {
-        $qb = $this->pmqQueryManager->getQueryList($mode, $user, $filter, $orderBy, $direction);
+        $qb = $this->pmqQueryManager->getQueryList($filter, $orderBy, $direction);
 
         return $this->customPaginator->paginate($qb, $page);
     }

@@ -42,10 +42,9 @@ class PMQRight
     private $level;
 
     /**
-     * @var \YoRenard\LFUserBundle\Entity\Service $service
+     * @var integer $service
      *
-     * @ORM\ManyToOne(targetEntity="YoRenard\LFUserBundle\Entity\Service")
-     * @ORM\JoinColumn(name="id_service", referencedColumnName="id_service", columnDefinition="INT UNSIGNED NOT NULL")
+     * @ORM\Column(name="id_service", columnDefinition="INT UNSIGNED NULL")
      */
     private $service;
 

@@ -27,18 +27,16 @@ class PMQFavoriteQuery
     private $query;
 
     /**
-     * @var LFUser $lfUser
+     * @var integer $lfUser
      *
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="YoRenard\LFUserBundle\Entity\LFUser", inversedBy="favoriteQueries")
-     * @ORM\JoinColumn(name="id_lf_user", referencedColumnName="id_lf_user", nullable=true)
+     * @ORM\Column(name="id_lf_user", columnDefinition="INT UNSIGNED NULL")
      */
     private $lfUser;
 
     /**
      * @param \YoRenard\LFUserBundle\Entity\LFUser $lfUser
      */
-    public function setLfUser(\YoRenard\LFUserBundle\Entity\LFUser $lfUser)
+    public function setLfUser(/*\YoRenard\LFUserBundle\Entity\LFUser*/ $lfUser)
     {
         $this->lfUser = $lfUser;
     }
