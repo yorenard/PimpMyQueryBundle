@@ -106,21 +106,15 @@ class CustomPaginator
     public function paginate(/*QueryBuilder */$queryBuilder, $page=1)
     {
         $this->count = $this->getCount($queryBuilder);
-
         $queryBuilder = $queryBuilder
             ->setFirstResult($this->getOffsetFromPage($page))
             ->setMaxResults(PMQQuery::NB_QUERY_ON_PAGE)
         ;
 
-
-
         $this->querylist      = $this->getResult($queryBuilder);
         $this->lastIdPage     = ceil($this->count / PMQQuery::NB_QUERY_ON_PAGE);
         $this->previousIdPage = $page>1? $page-1:1;
         $this->nextIdPage     = $page<$this->lastIdPage? $page+1:$this->lastIdPage;
-
-
-
 
         return $this;
     }
