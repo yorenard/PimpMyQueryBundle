@@ -5,53 +5,53 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="la_fourchette_pimp_my_query">YoRenard\PimpMyQueryBundle\</parameter>
+        <parameter key="yorenard_pimp_my_query">YoRenard\PimpMyQueryBundle\</parameter>
 
         <!--entities-->
-        <parameter key="la_fourchette_pimp_my_query.entity">%la_fourchette_pimp_my_query%Entity\</parameter>
-        <parameter key="la_fourchette_pimp_my_query.entity.pmq_favorite_query.class">%la_fourchette_pimp_my_query.entity%PMQFavoriteQuery</parameter>
-        <parameter key="la_fourchette_pimp_my_query.entity.pmq_param.class">%la_fourchette_pimp_my_query.entity%PMQParam</parameter>
-        <parameter key="la_fourchette_pimp_my_query.entity.pmq_query.class">%la_fourchette_pimp_my_query.entity%PMQQuery</parameter>
-        <parameter key="la_fourchette_pimp_my_query.entity.pmq_right.class">%la_fourchette_pimp_my_query.entity%PMQRight</parameter>
-        <parameter key="la_fourchette_pimp_my_query.entity.pmq_run_queue.class">%la_fourchette_pimp_my_query.entity%PMQRunQueue</parameter>
-        <parameter key="la_fourchette_pimp_my_query.entity.pmq_run_queue_param.class">%la_fourchette_pimp_my_query.entity%PMQRunQueueParam</parameter>
+        <parameter key="yorenard_pimp_my_query.entity">%yorenard_pimp_my_query%Entity\</parameter>
+        <parameter key="yorenard_pimp_my_query.entity.pmq_favorite_query.class">%yorenard_pimp_my_query.entity%PMQFavoriteQuery</parameter>
+        <parameter key="yorenard_pimp_my_query.entity.pmq_param.class">%yorenard_pimp_my_query.entity%PMQParam</parameter>
+        <parameter key="yorenard_pimp_my_query.entity.pmq_query.class">%yorenard_pimp_my_query.entity%PMQQuery</parameter>
+        <parameter key="yorenard_pimp_my_query.entity.pmq_right.class">%yorenard_pimp_my_query.entity%PMQRight</parameter>
+        <parameter key="yorenard_pimp_my_query.entity.pmq_run_queue.class">%yorenard_pimp_my_query.entity%PMQRunQueue</parameter>
+        <parameter key="yorenard_pimp_my_query.entity.pmq_run_queue_param.class">%yorenard_pimp_my_query.entity%PMQRunQueueParam</parameter>
 
         <!--managers-->
-        <parameter key="la_fourchette_pimp_my_query.manager">%la_fourchette_pimp_my_query%Manager\</parameter>
-        <parameter key="la_fourchette_pimp_my_query.manager.pmq_favorite_query_manager.class">%la_fourchette_pimp_my_query.manager%PMQFavoriteQueryManager</parameter>
-        <parameter key="la_fourchette_pimp_my_query.manager.pmq_param_manager.class">%la_fourchette_pimp_my_query.manager%PMQParamManager</parameter>
-        <parameter key="la_fourchette_pimp_my_query.manager.pmq_query_manager.class">%la_fourchette_pimp_my_query.manager%PMQQueryManager</parameter>
-        <parameter key="la_fourchette_pimp_my_query.manager.pmq_right_manager.class">%la_fourchette_pimp_my_query.manager%PMQRightManager</parameter>
-        <parameter key="la_fourchette_pimp_my_query.manager.pmq_run_queue_manager.class">%la_fourchette_pimp_my_query.manager%PMQRunQueueManager</parameter>
-        <parameter key="la_fourchette_pimp_my_query.manager.pmq_run_queue_param_manager.class">%la_fourchette_pimp_my_query.manager%PMQRunQueueParamManager</parameter>
+        <parameter key="yorenard_pimp_my_query.manager">%yorenard_pimp_my_query%Manager\</parameter>
+        <parameter key="yorenard_pimp_my_query.manager.pmq_favorite_query.class">%yorenard_pimp_my_query.manager%PMQFavoriteQueryManager</parameter>
+        <parameter key="yorenard_pimp_my_query.manager.pmq_param.class">%yorenard_pimp_my_query.manager%PMQParamManager</parameter>
+        <parameter key="yorenard_pimp_my_query.manager.pmq_query.class">%yorenard_pimp_my_query.manager%PMQQueryManager</parameter>
+        <parameter key="yorenard_pimp_my_query.manager.pmq_right.class">%yorenard_pimp_my_query.manager%PMQRightManager</parameter>
+        <parameter key="yorenard_pimp_my_query.manager.pmq_run_queue.class">%yorenard_pimp_my_query.manager%PMQRunQueueManager</parameter>
+        <parameter key="yorenard_pimp_my_query.manager.pmq_run_queue_param.class">%yorenard_pimp_my_query.manager%PMQRunQueueParamManager</parameter>
     </parameters>
 
     <services>
-        <service id="la_fourchette_pimp_my_query.manager.pmq_favorite_query_manager" class="%la_fourchette_pimp_my_query.manager.pmq_favorite_query_manager.class%">
+        <service id="yorenard_pimp_my_query.manager.pmq_query" class="%yorenard_pimp_my_query.manager.pmq_query.class%">
             <argument type="service" id="doctrine.orm.default_entity_manager" />
-            <argument>%la_fourchette_pimp_my_query.entity.pmq_favorite_query.class%</argument>
-        </service>
-        <service id="la_fourchette_pimp_my_query.manager.pmq_param_manager" class="%la_fourchette_pimp_my_query.manager.pmq_param_manager.class%">
-            <argument type="service" id="doctrine.orm.default_entity_manager" />
-            <argument>%la_fourchette_pimp_my_query.entity.pmq_param.class%</argument>
-        </service>
-        <service id="la_fourchette_pimp_my_query.manager.pmq_query_manager" class="%la_fourchette_pimp_my_query.manager.pmq_query_manager.class%">
-            <argument type="service" id="doctrine.orm.default_entity_manager" />
-            <argument>%la_fourchette_pimp_my_query.entity.pmq_query.class%</argument>
+            <argument>%yorenard_pimp_my_query.entity.pmq_query.class%</argument>
             <argument type="service" id="doctrine" />
         </service>
-        <service id="la_fourchette_pimp_my_query.manager.pmq_right_manager" class="%la_fourchette_pimp_my_query.manager.pmq_right_manager.class%">
+        <service id="yorenard_pimp_my_query.manager.pmq_favorite_query" class="%yorenard_pimp_my_query.manager.pmq_favorite_query.class%">
             <argument type="service" id="doctrine.orm.default_entity_manager" />
-            <argument>%la_fourchette_pimp_my_query.entity.pmq_right.class%</argument>
+            <argument>%yorenard_pimp_my_query.entity.pmq_favorite_query.class%</argument>
         </service>
-        <service id="la_fourchette_pimp_my_query.manager.pmq_run_queue_manager" class="%la_fourchette_pimp_my_query.manager.pmq_run_queue_manager.class%">
+        <service id="yorenard_pimp_my_query.manager.pmq_param" class="%yorenard_pimp_my_query.manager.pmq_param.class%">
             <argument type="service" id="doctrine.orm.default_entity_manager" />
-            <argument>%la_fourchette_pimp_my_query.entity.pmq_run_queue.class%</argument>
+            <argument>%yorenard_pimp_my_query.entity.pmq_param.class%</argument>
+        </service>
+        <service id="yorenard_pimp_my_query.manager.pmq_right" class="%yorenard_pimp_my_query.manager.pmq_right.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument>%yorenard_pimp_my_query.entity.pmq_right.class%</argument>
+        </service>
+        <service id="yorenard_pimp_my_query.manager.pmq_run_queue" class="%yorenard_pimp_my_query.manager.pmq_run_queue.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument>%yorenard_pimp_my_query.entity.pmq_run_queue.class%</argument>
             <argument type="service" id="doctrine" />
         </service>
-        <service id="la_fourchette_pimp_my_query.manager.pmq_run_queue_param_manager" class="%la_fourchette_pimp_my_query.manager.pmq_run_queue_param_manager.class%">
+        <service id="yorenard_pimp_my_query.manager.pmq_run_queue_param" class="%yorenard_pimp_my_query.manager.pmq_run_queue_param.class%">
             <argument type="service" id="doctrine.orm.default_entity_manager" />
-            <argument>%la_fourchette_pimp_my_query.entity.pmq_run_queue_param.class%</argument>
+            <argument>%yorenard_pimp_my_query.entity.pmq_run_queue_param.class%</argument>
         </service>
     </services>
 </container>
