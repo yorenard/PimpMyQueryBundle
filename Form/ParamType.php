@@ -8,27 +8,34 @@ use YoRenard\PimpMyQueryBundle\Entity\PMQParam;
 
 class ParamType extends AbstractType
 {
-
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'text', array (
-                    'label' => 'personalized_field.form.name.label'
-                ))
-                ->add('field_type', 'choice', array (
-                    'label' => 'personalized_field.form.type.label',
-                    'choices' => $this->getFieldTypeList(),
-                    'required' => false,
-                    'multiple' => false,
-                    'expanded' => false,
-                    'empty_value' => false,
-                ))
-                ->add('field_values', 'text', array (
-                    'label' => 'personalized_field.form.value.label',
-                    'required' => false
-                ))
-                ->add('code', 'hidden', array ());
+        $builder
+            ->add('name', 'text', array (
+                'label' => 'personalized_field.form.name.label'
+            ))
+            ->add('field_type', 'choice', array (
+                'label' => 'personalized_field.form.type.label',
+                'choices' => $this->getFieldTypeList(),
+                'required' => false,
+                'multiple' => false,
+                'expanded' => false,
+                'empty_value' => false,
+            ))
+            ->add('field_values', 'text', array (
+                'label' => 'personalized_field.form.value.label',
+                'required' => false
+            ))
+            ->add('code', 'hidden', array ())
+        ;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getDefaultOptions(array $options)
     {
         return array (
@@ -40,11 +47,17 @@ class ParamType extends AbstractType
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'param_form';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFieldTypeList()
     {
         return array(
@@ -55,5 +68,4 @@ class ParamType extends AbstractType
             PMQParam::FIELD_TYPE_FILE   => 'personalized_field.form.type.file',
         );
     }
-
 }

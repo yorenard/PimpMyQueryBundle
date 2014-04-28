@@ -38,12 +38,13 @@ class QueryType extends AbstractType
                 'label' => 'status.form.label',
                 'required' => false
             ))
-//            ->add('params', 'collection', array(
-//                'type' => new ParamType(),
-//                'required' => false,
-//                'allow_add' => true,
-//                'allow_delete' => true,
-//            ))
+            ->add('params', 'collection', array(
+                'type' => new ParamType(),
+                'options' => array('data_class' => 'YoRenard\PimpMyQueryBundle\Entity\PMQParam'),
+                'required' => false,
+                'allow_add' => true,
+                'allow_delete' => true,
+            ))
 //            ->add('rights', 'collection', array(
 //                'type' => new RightType(),
 //                'required' => false,
