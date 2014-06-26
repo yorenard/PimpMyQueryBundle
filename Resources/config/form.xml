@@ -7,6 +7,7 @@
     <parameters>
         <!--form-->
         <parameter key="yorenard_pimp_my_query.form.type.pmq_query.type.class">YoRenard\PimpMyQueryBundle\Form\QueryType</parameter>
+        <parameter key="yorenard_pimp_my_query.form.type.custom_param.type.class">YoRenard\PimpMyQueryBundle\Form\CustomParamType</parameter>
 
         <!--constraints-->
         <parameter key="yorenard_pimp_my_query.form.constraints">YoRenard\PimpMyQueryBundle\Form\Extension\Validator\Constraints\</parameter>
@@ -16,6 +17,7 @@
     <services>
         <!--form-->
         <service id="yorenard_pimp_my_query.form.type.pmq_query.type" class="%yorenard_pimp_my_query.form.type.pmq_query.type.class%" />
+        <service id="yorenard_pimp_my_query.form.type.custom_param.type" class="%yorenard_pimp_my_query.form.type.custom_param.type.class%" />
 
         <!--constraints-->
         <service id="yorenard_pimp_my_query.form.constraints.validator.form" class="%yorenard_pimp_my_query.form.constraints.validator.form.class%" />

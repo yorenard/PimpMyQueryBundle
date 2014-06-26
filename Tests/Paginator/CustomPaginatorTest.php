@@ -19,6 +19,10 @@ class CustomPaginatorTest extends \PHPUnit_Framework_TestCase
 
     public function testPaginate()
     {
+        $this->markTestIncomplete(
+            'This test was commented.'
+        );
+
         $queryBuilder = $this->getMock('Doctrine\DBAL\Query\QueryBuilder', array('setFirstResult', 'setMaxResults'), array(), '', null);
 
         $customPaginator = $this->getMock('YoRenard\PimpMyQueryBundle\Paginator\CustomPaginator', array('getCount', 'getResult', 'getOffsetFromPage'), array(), '', null);
